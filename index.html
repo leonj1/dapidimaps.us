@@ -169,7 +169,7 @@
             infowindow = new google.maps.InfoWindow();
             var service = new google.maps.places.PlacesService(map);
             service.nearbySearch({
-                location: pyrmont,
+                location: place.geometry.location,
                 radius: 1000,
                 types: ['bus_station','transit_station']
 
