@@ -113,12 +113,12 @@
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        var service2 = new google.maps.places.PlacesService(map);
-        service2.nearbySearch({
-            location: pyrmont,
-            radius: 500,
-            type: ['bus_station', 'transit_station']
-        }, callback);
+//        var service2 = new google.maps.places.PlacesService(map);
+//        service2.nearbySearch({
+//            location: pyrmont,
+//            radius: 500,
+//            type: ['bus_station', 'transit_station']
+//        }, callback);
 
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
