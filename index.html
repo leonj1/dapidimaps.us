@@ -93,7 +93,7 @@
             Dapidi Maps
         </div>
         <div id="type-selector" class="pac-controls">
-            <div>Walk score</div>
+            <div>Walk score <span id="walkscore"></span></div>
         </div>
     </div>
     <div id="pac-container">
@@ -186,6 +186,17 @@
 
             }, callback);
 
+            $.ajax({
+                url: "https://www.walkscore.com/auth/_pv/overview/200-west-st-new-york-ny-10262?d=current",
+                cache: false,
+                success: function(response){
+                    var walkscore,
+                        json_obj = $.parseJSON(response);
+                    console.log(response);
+                    $("#walkscore").append(response.walkscore);
+                }
+            });
+
         });
 
         // Sets a listener on a radio button to change the filter type on Places
@@ -232,5 +243,6 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgs7V7yhnd3-iBFKar-i1lEOzPuKRMvZA&libraries=places&callback=initMap"
         async defer></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>
