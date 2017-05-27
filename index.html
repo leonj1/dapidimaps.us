@@ -153,13 +153,6 @@
             map: map,
             anchorPoint: new google.maps.Point(0, -29)
         });
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-            location: pyrmont,
-            radius: 1000,
-            types: ['bus_station','transit_station']
-
-        }, callback);
 
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
@@ -195,6 +188,15 @@
             infowindowContent.children['place-name'].textContent = place.name;
             infowindowContent.children['place-address'].textContent = address;
             infowindow.open(map, marker);
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+                location: place,
+                radius: 1000,
+                types: ['bus_station','transit_station']
+
+            }, callback);
+
         });
 
         // Sets a listener on a radio button to change the filter type on Places
