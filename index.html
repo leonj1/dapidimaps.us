@@ -189,6 +189,9 @@
             infowindowContent.children['place-address'].textContent = address;
             infowindow.open(map, marker);
 
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+
             var service = new google.maps.places.PlacesService(map);
             service.nearbySearch({
                 location: place,
