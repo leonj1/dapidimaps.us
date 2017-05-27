@@ -192,8 +192,8 @@
                 success: function(response){
                     var walkscore,
                         json_obj = $.parseJSON(response);
-                    console.log("Response is " + response);
-                    $("#walkscore").append(response.walkscore);
+                    console.log("Response is " + json_obj);
+                    $("#walkscore").append(json_obj.walkscore);
                 }
             });
 
