@@ -154,6 +154,9 @@
             anchorPoint: new google.maps.Point(0, -29)
         });
 
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
             marker.setVisible(false);
@@ -188,9 +191,6 @@
             infowindowContent.children['place-name'].textContent = place.name;
             infowindowContent.children['place-address'].textContent = address;
             infowindow.open(map, marker);
-
-            var transitLayer = new google.maps.TransitLayer();
-            transitLayer.setMap(map);
 
             var service = new google.maps.places.PlacesService(map);
             service.nearbySearch({
